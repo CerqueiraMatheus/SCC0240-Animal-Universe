@@ -87,7 +87,7 @@ INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('us
 INSERT INTO GESTOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO VETERINARIO 'Elídio'
-INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('14154322309', 'Brasileiro', 'Elídio Sanna', 'Funcionário');
+INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('14154322308', 'Brasileiro', 'Elídio Sanna', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2021-04-12', 55321663333154);
 INSERT INTO VETERINARIO (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
