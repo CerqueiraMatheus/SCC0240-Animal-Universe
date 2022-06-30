@@ -44,19 +44,19 @@ INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO) VALUES (14301663000150, 
 
 -- FUNCIONARIO GESTOR 'BERMUDES'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('14155200708', 'Brasileiro', 'Matheus Bermudes', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2020-12-08', 14301663000150);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2020-12-08', 14301663000150, 'Gestor');
 INSERT INTO GESTOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO VETERINARIO 'VIANA'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('11849797', 'Colombiano', 'Matheus Viana', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO)
-VALUES ((SELECT(currval('usuario_id_seq'))), '2020-06-21', 14301663000150);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
+VALUES ((SELECT(currval('usuario_id_seq'))), '2020-06-21', 14301663000150, 'Veterinário');
 INSERT INTO VETERINARIO (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO CUIDADOR 'LUISA'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('3755817', 'Italiano', 'Luisa Balleroni', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO)
-VALUES ((SELECT(currval('usuario_id_seq'))), '2022-02-16', 14301663000150);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
+VALUES ((SELECT(currval('usuario_id_seq'))), '2022-02-16', 14301663000150, 'Cuidador');
 INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- Zoológico 2
@@ -64,18 +64,18 @@ INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO) VALUES (25301663000150, 
 
 -- FUNCIONARIO GESTOR 'Claudio'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('145555505503', 'Argentino', 'Claudio Bochecha', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO)
-VALUES ((SELECT(currval('usuario_id_seq'))), '2021-10-02', 25301663000150);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
+VALUES ((SELECT(currval('usuario_id_seq'))), '2021-10-02', 25301663000150, 'Gestor');
 INSERT INTO GESTOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO VETERINARIO 'Beatriz'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('3770981236', 'Brasileiro', 'Beatriz Machado', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2019-04-12', 25301663000150);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2019-04-12', 25301663000150, 'Veterinário');
 INSERT INTO VETERINARIO (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO CUIDADOR 'Belle Belinha'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('133769420', 'Brasileiro', 'Belle Belinha', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-06-25', 25301663000150);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-06-25', 25301663000150, 'Cuidador');
 INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- Zoológico 3
@@ -83,15 +83,15 @@ INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO) VALUES (55321663333154, 
 
 -- FUNCIONARIO GESTOR 'Anderson'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('14154300009', 'Brasileiro', 'Anderson Novaes', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2020-05-15', 55321663333154);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2020-05-15', 55321663333154, 'Gestor');
 INSERT INTO GESTOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO VETERINARIO 'Elídio'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('14154322308', 'Brasileiro', 'Elídio Sanna', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2021-04-12', 55321663333154);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2021-04-12', 55321663333154, 'Veterinário');
 INSERT INTO VETERINARIO (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 -- FUNCIONARIO CUIDADOR 'Daniel'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('19154332009', 'Brasileiro', 'Daniel Nascimento', 'Funcionário');
-INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-02-16', 55321663333154);
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-02-16', 55321663333154, 'Cuidador');
 INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
