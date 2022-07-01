@@ -162,3 +162,46 @@ INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (1, 1);
 INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 11:54:30', 'Foi relatado a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
 
 --
+
+-- Espécimes ZOOLOGICO 1
+
+-- Espécime 1
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Paçoca', 'Femininino', 18, 'Gosta de carinho', 'Mansa', 14301663000150, 1, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14155200708')));
+
+-- Espécime 2
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Café', 'Masculino', 3, 'Brincalhão', 'Manso', 14301663000150, 2, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14155200708')));
+
+-- Espécime 3
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Lentilha', 'Femininino', 10, 'Gosta de correr', 'Amigável', 14301663000150, 3, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14155200708')));
+
+-- Espécime 4
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Feijão', 'Masculino', 20, 'Não brinca', 'Bravo', 14301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14155200708')));
+
+
+-- Espécimes ZOOLOGICO 2
+
+-- Espécime 5
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Mojito', 'Masculino', 18, 'Morde a pata', 'Arisco', 25301663000150, 1, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
+
+-- Espécime 6
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Tequila', 'Femininino', 18, 'Corre atrás do cuidador', 'Medrosa', 25301663000150, 2, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
+
+-- Espécime 7
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Gin', 'Masculino', 18, 'Gosta de carinho', 'Bravo', 25301663000150, 3, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
+
+-- Espécime 8
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Paçoca', 'Femininino', 18, 'Dorme de barriga para cima', 'Brincalhona', 25301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
+
+-- Espécimes ZOOLOGICO 3
+
+-- Espécime 9
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Recife', 'Masculino', 2, 'Dormir', 'Calmo', 55321663333154, 1, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
+
+-- Espécime 10
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Pinda', 'Femininino', 5, 'Brincar com cuidador', 'Medrosa', 55321663333154, 2, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
+
+-- Espécime 11
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Salvador', 'Masculino', 7, 'Gosta de carinho', 'Arisco', 55321663333154, 3, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
+
+-- Espécime 12
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
