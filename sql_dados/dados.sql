@@ -27,18 +27,22 @@ INSERT INTO biologo (id, nivel, curriculo) VALUES ((SELECT(currval('usuario_id_s
 -- Organização 1
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('51.504.667/0001-62', 'Brasileiro', 'UIPA', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
+INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- Organização 2
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('02.451.194/0001-77', 'Polonês', 'Tierheim', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
+INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- Organização 3
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('78.314.368/0001-11', 'Brasileiro', 'SOPRAP', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
+INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- Organização 4
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('18.657.421/0001-55', 'Brasileiro', 'ANDA', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
+INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- 4. Zoológicos e funcionários de zoológico
 
