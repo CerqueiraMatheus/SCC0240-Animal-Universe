@@ -109,11 +109,50 @@ INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currv
 INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
 
+
 -- ANIMAL 1: ONÇA-PINTADA
 INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
                     FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
 VALUES ('Panthera onca', 2, 'Onça-pintada', true, 'Consumidor', 'Florestas tropicais', 'Chordata',
         'Mammalia', 'Carnivora', 'Felídeos', 'Panthera', 'Panthera onca', 'Sexuada', false, 'A onça-pintada ou jaguar, também conhecida como onça-preta, é uma espécie de mamífero carnívoro da família dos felídeos encontrada nas Américas. É o terceiro maior felino do mundo, após o tigre e o leão, e o maior do continente americano.');
+
+INSERT INTO ANIMAL_FOTO (ANIMAL, FOTO) VALUES (1, 'https://static.mundoeducacao.uol.com.br/mundoeducacao/2022/01/onca-pintada.jpg');
+INSERT INTO ANIMAL_AUDIO (ANIMAL, AUDIO) VALUES (1, 'https://www.youtube.com/watch?v=c8ffwglAX7A&ab_channel=wesleypradoII');
+INSERT INTO ANIMAL_VIDEO (ANIMAL, VIDEO) VALUES (1, 'https://www.youtube.com/shorts/SMX9cepqyRo');
+
+-- ANIMAL 2: CERVO
+INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
+                    FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
+VALUES ('Blastocerus dichotomus', 3, 'Cervo-do-pantanal', true, 'Consumidor', 'Cerrado', 'Chordata',
+        'Mammalia', 'Artiodáctilos', 'Cervídeos', 'Blastocerus', 'Blastocerus dichotomus', 'Sexuada', false, 'O cervo-do-pantanal é o maior veado da América do Sul, com quase 200 cm de comprimento e até 2,1 metros de altura.');
+
+INSERT INTO ANIMAL_FOTO (ANIMAL, FOTO) VALUES (2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Cervo_do_pantano.jpg/420px-Cervo_do_pantano.jpg');
+INSERT INTO ANIMAL_AUDIO (ANIMAL, AUDIO) VALUES (2, 'https://www.youtube.com/watch?v=c8ffwglAX7A&ab_channel=wesleypradoII');
+INSERT INTO ANIMAL_VIDEO (ANIMAL, VIDEO) VALUES (2, 'https://www.youtube.com/watch?v=gxekKBYEB5w&ab_channel=CantinhoSelvagem');
+
+-- ANIMAL 3: CAPIVARA
+INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
+                    FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
+VALUES ('Hydrochoerus hydrochaeris', 4, 'Capivara', true, 'Consumidor', 'Lagos', 'Chordata',
+        'Mammalia', 'Rodentia', 'Caviidae', 'Hydrochoerus', 'Hydrochoerus hydrochaeris', 'Sexuada', false, 'É o maior roedor do mundo, pesando até 91 kg e medindo até 1,2 m de comprimento e 60 cm de altura. A pelagem é densa, de cor avermelhada a marrom escuro.');
+
+INSERT INTO ANIMAL_FOTO (ANIMAL, FOTO) VALUES (3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Capybara_%28Hydrochoerus_hydrochaeris%29.JPG/420px-Capybara_%28Hydrochoerus_hydrochaeris%29.JPG');
+INSERT INTO ANIMAL_AUDIO (ANIMAL, AUDIO) VALUES (3, 'https://www.youtube.com/watch?v=R3yqKpMiG2Q&ab_channel=CanalInacredit%C3%A1vel');
+INSERT INTO ANIMAL_VIDEO (ANIMAL, VIDEO) VALUES (3, 'https://www.youtube.com/watch?v=wNzmHIAapZ8&ab_channel=Neg%C3%B3ciosdaTerra');
+
+-- ANIMAL 4: PINGUIM
+INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
+                    FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
+VALUES ('Spheniscus magellanicus', 4, 'Pinguim-de-Magalhães', true, 'Consumidor', 'Águas temperadas, zonas costeiras da Argentina, Chile e Ilhas Malvinas', 'Chordata',
+        'Aves', 'Sphenisciformes', 'Spheniscidae', 'Spheniscus', 'Spheniscus magellanicus', 'Sexuada', false, 'O pinguim-de-magalhães tem estatura média de 70 cm. A sua plumagem é negra nas costas e nas asas, e branca na zona ventral e no pescoço. A maior parte dos exemplares tem na cabeça uma risca branca.');
+
+INSERT INTO ANIMAL_FOTO (ANIMAL, FOTO) VALUES (3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Magellanic-penguin02.jpg/420px-Magellanic-penguin02.jpg');
+INSERT INTO ANIMAL_AUDIO (ANIMAL, AUDIO) VALUES (3, 'https://www.youtube.com/watch?v=O2WHwWmA_Ro&ab_channel=BinhoDF3');
+INSERT INTO ANIMAL_VIDEO (ANIMAL, VIDEO) VALUES (3, 'https://www.youtube.com/watch?v=kJwgLTgcE_0&ab_channel=Aqu%C3%A1riodeUbatuba');
+
+-- PREDAÇÃO 1: ONÇA X CERVO
+INSERT INTO PREDACAO (PRESA, PREDADOR) VALUES (2, 1);
+
 
 -- ALERTA 1 - Bermudes
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
@@ -122,3 +161,4 @@ INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (1, 6);
 INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (1, 1);
 INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 11:54:30', 'Foi relatado a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
 
+--
