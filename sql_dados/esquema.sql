@@ -92,7 +92,7 @@ CREATE TABLE ANIMAL(
     NOME            VARCHAR(50),
     VERTEBRADO      BOOLEAN,
     NIVEL_TROFICO   VARCHAR(30),
-    HABITAT         VARCHAR(30),
+    HABITAT         VARCHAR(100),
     FILO            VARCHAR(30),
     CLASSE          VARCHAR(30),
     ORDEM           VARCHAR(30),
