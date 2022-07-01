@@ -1,11 +1,14 @@
+
 -- 1. Usuário Comum
 INSERT INTO usuario (documento, nacionalidade, nome) VALUES ('55883662129', 'Brasileiro', 'Alexandre Brito');
 
 -- 2. Biólogos
 
 -- Biólogo 1
-INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('95310896716', 'Brasileiro', 'Matheus Bermudes Viana', 'Biólogo');
-INSERT INTO biologo (id, nivel, curriculo) VALUES ((SELECT(currval('usuario_id_seq'))), 'Graduação', 'Tem CRM de número 01 e trabalhou na FUNAI');
+INSERT INTO usuario (documento, nacionalidade, nome, tipo)
+VALUES ('95310896716', 'Brasileiro', 'Matheus Bermudes Viana', 'Biólogo');
+INSERT INTO biologo (id, nivel, curriculo)
+VALUES ((SELECT(currval('usuario_id_seq'))), 'Graduação', 'Tem CRM de número 01 e trabalhou na FUNAI');
 
 -- Biólogo 2
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('99221587010', 'Colombiano', 'Gabriel Freitas Ximenes de Vasconcelos', 'Biólogo');
@@ -95,3 +98,23 @@ INSERT INTO VETERINARIO (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('19154332009', 'Brasileiro', 'Daniel Nascimento', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-02-16', 55321663333154, 'Cuidador');
 INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
+
+-- FUNCIONARIO CUIDADOR 'CLODOALDO'
+INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('19555222559', 'Brasileiro', 'Clodoaldo Pereira', 'Funcionário');
+INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-04-16', 55321663333154, 'Cuidador');
+INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
+
+
+-- ANIMAL 1: ONÇA-PINTADA
+INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
+                    FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
+VALUES ('Panthera onca', 2, 'Onça-pintada', true, 'Consumidor', 'Florestas tropicais', 'Chordata',
+        'Mammalia', 'Carnivora', 'Felídeos', 'Panthera', 'Panthera onca', 'Sexuada', false, 'A onça-pintada ou jaguar, também conhecida como onça-preta, é uma espécie de mamífero carnívoro da família dos felídeos encontrada nas Américas. É o terceiro maior felino do mundo, após o tigre e o leão, e o maior do continente americano.');
+
+-- ALERTA 1 - Bermudes
+INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
+VALUES (1, 2, '2022-04-06 15:30:00', 'Onça-pintada', -23.55052, -46.633309, 'Avistei uma onça preta nas redondezas do campus 2 da USP, parecia estar fraca e magra.');
+INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (1, 6);
+INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (1, 1);
+INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 11:54:30', 'Foi relatado a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
+
