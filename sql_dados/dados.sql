@@ -1,8 +1,13 @@
 
--- 1. Usuário Comum
+-- 
+-- Usuário
+-- 
+
 INSERT INTO usuario (documento, nacionalidade, nome) VALUES ('55883662129', 'Brasileiro', 'Alexandre Brito');
 
--- 2. Biólogos
+-- 
+-- Biólogo
+-- 
 
 -- Biólogo 1
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
@@ -22,7 +27,9 @@ INSERT INTO biologo (id, nivel, curriculo) VALUES ((SELECT(currval('usuario_id_s
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('15087406823', 'Polonês', 'Raissa Torres Barreira', 'Biólogo');
 INSERT INTO biologo (id, nivel, curriculo) VALUES ((SELECT(currval('usuario_id_seq'))), 'Mestrado', 'Tem CRM de número 04 e trabalhou na ANA');
 
--- 3. Organizações
+-- 
+-- Organizações
+-- 
 
 -- Organização 1
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('51.504.667/0001-62', 'Brasileiro', 'UIPA', 'Organização');
@@ -40,7 +47,9 @@ INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('18.657.421/0001-55', 'Brasileiro', 'ANDA', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- 4. Zoológicos e funcionários de zoológico
+-- 
+-- Zoológicos e funcionários de zoológico
+-- 
 
 -- Zoológico 1
 INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO) VALUES (14301663000150, 'ZOO SAO CARLOS', 'RUA DOS BOBOS, Nº 0', 'VOU PARTIR COM ELES PRA MADAGASCAR');
@@ -104,7 +113,9 @@ INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('19555222559'
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO) VALUES ((SELECT(currval('usuario_id_seq'))), '2022-04-16', 55321663333154, 'Cuidador');
 INSERT INTO CUIDADOR (ID) VALUES ((SELECT(currval('usuario_id_seq'))));
 
-
+-- 
+-- Animais
+-- 
 
 -- ANIMAL 1: ONÇA-PINTADA
 INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
@@ -146,9 +157,16 @@ INSERT INTO ANIMAL_FOTO (ANIMAL, FOTO) VALUES (3, 'https://upload.wikimedia.org/
 INSERT INTO ANIMAL_AUDIO (ANIMAL, AUDIO) VALUES (3, 'https://www.youtube.com/watch?v=O2WHwWmA_Ro&ab_channel=BinhoDF3');
 INSERT INTO ANIMAL_VIDEO (ANIMAL, VIDEO) VALUES (3, 'https://www.youtube.com/watch?v=kJwgLTgcE_0&ab_channel=Aqu%C3%A1riodeUbatuba');
 
+-- 
+-- Predação
+-- 
+
 -- PREDAÇÃO 1: ONÇA X CERVO
 INSERT INTO PREDACAO (PRESA, PREDADOR) VALUES (2, 1);
 
+-- 
+-- Relatos e alertas
+-- 
 
 -- RELATO + ALERTA 1 - Bermudes
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
@@ -180,7 +198,10 @@ INSERT INTO comentario_relato (usuario, relato, data_hora, descricao)
 VALUES (15, 2, '2022-05-06 15:40:04', 'Oh, que cervo bonito! Espero que ele fique bem.');
 INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
 VALUES (15, 2, '2022-05-06 17:50:30', 'Cervos são muito bonitos, amo estes animais');
---
+
+-- 
+-- Espécimes
+-- 
 
 -- Espécimes ZOOLOGICO 1
 
@@ -225,6 +246,12 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 -- Espécime 12
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
 
+-- 
+-- Consultas e atualizações de estado
+-- 
+
+-- Zoológico 1
+
 -- CONSULTA 1 : ESPECIME -> Paçoca, VETERINÁRIO: Matheus Viana
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-07-20 11:50:00', 1, 11, 'Infecção bacteriana nas patas traseiras', 'Utilização de antibiótico todo dia às 10h da manhã.');
@@ -244,6 +271,7 @@ VALUES ('2022-05-07 15:30:00', 2, 12, 'Está melhorando bem. Está saudável.');
 -- CONSULTA 3
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-05-07 16:00:00', 3, 11, 'Está com verme', 'Utilização de vermífugo');
+
 -- ESTADO 3 :
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-10 16:00:00', 3, 12, 'Está completamente saudável.');
@@ -251,27 +279,66 @@ VALUES ('2022-05-10 16:00:00', 3, 12, 'Está completamente saudável.');
 -- CONSULTA 4:
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-05-12 16:00:00', 4, 11, 'Está com um machucado superficial na barriga.', 'Pomada na superfície da barriga, massageando-a');
+
 -- ESTADO 4:
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-20 16:00:00', 4, 12, 'O machucado sarou completamente. Está saudável.');
 
+-- Zoológico 2
 
+-- CONSULTA 5 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2020-07-20 12:00:00', 5, 14, 'Corte profundo no pescoço', 'Necessita de limpeza diária do ferimento e troca de curativos');
+
+-- ESTADO 5 : ESPECIME -> Mojito, CUIDADOR:
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2020-07-22 12:00:00', 5, 15, 'Curativos trocados, recuperando');
+
+-- CONSULTA 6 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2020-07-28 12:00:00', 5, 14, 'Ferida em cicatrização no pescoço', 'Necessita de remoção de curativos intensos');
+
+-- ESTADO 6 : ESPECIME -> Mojito, CUIDADOR: Belle Belinha
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2020-07-29 12:00:00', 5, 15, 'Curativos removidos');
+
+-- CONSULTA 7 : ESPECIME -> Tequila, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2021-05-28 12:00:00', 6, 14, 'Tristeza profunda', 'Necessita de passeios com a cuidadora');
+
+-- ESTADO 7 : ESPECIME -> Tequila, CUIDADOR: Belle Belinha
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2021-05-29 12:00:00', 6, 15, 'Passeio realizado, Tequila feliz.');
+
+-- CONSULTA 8 : ESPECIME -> Gin, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2021-04-23 12:00:00', 7, 14, 'Dente quebrado', 'Necessita de anestésicos por 3 dias');
+
+-- ESTADO 8 : ESPECIME -> Gin, CUIDADOR: Belle Belinha
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2021-04-26 12:00:00', 7, 15, 'Tratamento finalizado, Gin recuperado'); 
 
 -- Zoológico 3
--- CONSULTA 1:
+
+-- CONSULTA 9:
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-04-15 16:00:00', 9, 17, 'Está com ', 'Pomada na superfície da barriga, massageando-a');
--- ESTADO 1:
+
+-- ESTADO 9:
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-04-20 16:00:00', 9, 18, 'O machucado sarou completamente. Está saudável.');
 
-
--- CONSULTA 2:
+-- CONSULTA 10:
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-04-25 16:00:00', 10, 17, 'Está com queimaduras nas patas da frente', 'Aplicação de pomada para queimaduras na pata, e mantê-las enfaixadas.');
--- ESTADO 1:
+
+-- ESTADO 10:
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-20 16:00:00', 10, 18, 'As patas estão perfeitas e o animal está saudável.');
+
+-- 
+-- Apadrinhamentos
+-- 
 
 -- APADRINHAMENTO 1
 insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor) VALUES
