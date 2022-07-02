@@ -209,7 +209,7 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Gin', 'Masculino', 18, 'Gosta de carinho', 'Bravo', 25301663000150, 3, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
 
 -- Espécime 8
-INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Vodka', 'Femininino', 18, 'Dorme de barriga para cima', 'Brincalhona', 25301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Paçoca', 'Femininino', 18, 'Dorme de barriga para cima', 'Brincalhona', 25301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
 
 -- Espécimes ZOOLOGICO 3
 
@@ -224,7 +224,6 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 
 -- Espécime 12
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
-
 
 -- CONSULTA 1 : ESPECIME -> Paçoca, VETERINÁRIO: Matheus Viana
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
@@ -258,40 +257,6 @@ VALUES ('2022-05-20 16:00:00', 4, 12, 'O machucado sarou completamente. Está sa
 
 
 
--- CONSULTA 5 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
-INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
-VALUES ('2020-07-20 12:00:00', 5, 14, 'Corte profundo no pescoço', 'Necessita de limpeza diária do ferimento e troca de curativos');
-
--- ESTADO 5 : ESPECIME -> Mojito, CUIDADOR:
-INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
-VALUES ('2020-07-22 12:00:00', 5, 15, 'Curativos trocados, recuperando');
-
--- CONSULTA 6 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
-INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
-VALUES ('2020-07-28 12:00:00', 5, 14, 'Ferida em cicatrização no pescoço', 'Necessita de remoção de curativos intensos');
-
--- ESTADO 6 : ESPECIME -> Mojito, CUIDADOR: Belle Belinha
-INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
-VALUES ('2020-07-29 12:00:00', 5, 15, 'Curativos removidos');
-
--- CONSULTA 7 : ESPECIME -> Tequila, VETERINÁRIO: Beatriz Machado
-INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
-VALUES ('2021-05-28 12:00:00', 6, 14, 'Tristeza profunda', 'Necessita de passeios com a cuidadora');
-
--- ESTADO 7 : ESPECIME -> Tequila, CUIDADOR: Belle Belinha
-INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
-VALUES ('2021-05-29 12:00:00', 6, 15, 'Passeio realizado, Tequila feliz.');
-
--- CONSULTA 8 : ESPECIME -> Gin, VETERINÁRIO: Beatriz Machado
-INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
-VALUES ('2021-04-23 12:00:00', 7, 14, 'Dente quebrado', 'Necessita de anestésicos por 3 dias');
-
--- ESTADO 8 : ESPECIME -> Gin, CUIDADOR: Belle Belinha
-INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
-VALUES ('2021-04-26 12:00:00', 7, 15, 'Tratamento finalizado, Gin recuperado');
-
-
-
 -- Zoológico 3
 -- CONSULTA 1:
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
@@ -300,10 +265,32 @@ VALUES ('2022-04-15 16:00:00', 9, 17, 'Está com ', 'Pomada na superfície da ba
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-04-20 16:00:00', 9, 18, 'O machucado sarou completamente. Está saudável.');
 
+
 -- CONSULTA 2:
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-04-25 16:00:00', 10, 17, 'Está com queimaduras nas patas da frente', 'Aplicação de pomada para queimaduras na pata, e mantê-las enfaixadas.');
--- ESTADO 2:
+-- ESTADO 1:
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-20 16:00:00', 10, 18, 'As patas estão perfeitas e o animal está saudável.');
+
+-- APADRINHAMENTO 1
+insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor) VALUES
+('2022-08-01', '2022-12-01', 1, 1, 1040);
+
+-- APADRINHAMENTO 2
+insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor) VALUES
+('2022-08-10', '2022-12-10', 2, 2, 930);
+
+-- APADRINHAMENTO 3
+insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor) VALUES
+('2022-09-01', '2022-12-20', 3, 3, 510);
+
+-- APADRINHAMENTO 4
+insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor) VALUES
+('2022-09-01', '2022-12-20', 4, 4, 1180);
+
+-- APADRINHAMENTO 5
+insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor) VALUES
+('2022-09-30', '2022-12-30', 5, 5, 1060);
+
 
