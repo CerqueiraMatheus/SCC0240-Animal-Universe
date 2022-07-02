@@ -209,7 +209,7 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Gin', 'Masculino', 18, 'Gosta de carinho', 'Bravo', 25301663000150, 3, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
 
 -- Espécime 8
-INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Paçoca', 'Femininino', 18, 'Dorme de barriga para cima', 'Brincalhona', 25301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Vodka', 'Femininino', 18, 'Dorme de barriga para cima', 'Brincalhona', 25301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Argentino' AND u.documento = '145555505503')));
 
 -- Espécimes ZOOLOGICO 3
 
