@@ -27,22 +27,18 @@ INSERT INTO biologo (id, nivel, curriculo) VALUES ((SELECT(currval('usuario_id_s
 -- Organização 1
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('51.504.667/0001-62', 'Brasileiro', 'UIPA', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
-INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- Organização 2
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('02.451.194/0001-77', 'Polonês', 'Tierheim', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
-INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- Organização 3
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('78.314.368/0001-11', 'Brasileiro', 'SOPRAP', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
-INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- Organização 4
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES ('18.657.421/0001-55', 'Brasileiro', 'ANDA', 'Organização');
 INSERT INTO organizacao (id) VALUES ((SELECT(currval('usuario_id_seq'))));
-INSERT INTO certificacao (id, certificacao) VALUES ((SELECT(currval('usuario_id_seq'))), 'GOV2022');
 
 -- 4. Zoológicos e funcionários de zoológico
 
@@ -157,34 +153,33 @@ INSERT INTO PREDACAO (PRESA, PREDADOR) VALUES (2, 1);
 -- RELATO + ALERTA 1 - Bermudes
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
 VALUES (1, 2, '2022-04-06 15:30:00', 'Onça-pintada', -23.55052, -46.633309, 'Avistei uma onça preta nas redondezas do campus 2 da USP, parecia estar fraca e magra.');
+
+INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 15:54:30', 'Foi relatada a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
 INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (1, 6);
 INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (1, 1);
-INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 15:54:30', 'Foi relatado a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
-INSERT INTO FOTO(RELATO, FOTO) VALUES (2, 'https://img.freepik.com/fotos-gratis/bela-e-rara-onca-preta-no-brasil-panthera-onca_437937-1741.jpg');
-INSERT INTO VIDEO(RELATO, VIDEO) VALUES (2, 'https://www.youtube.com/watch?v=oWtTqZqMl3g&ab_channel=ca%C3%A7aepescapvh');
-INSERT INTO AUDIO(RELATO, AUDIO) VALUES (2, 'https://www.youtube.com/watch?v=l9r4vyIfLV8&ab_channel=MATHEUSTIGER');
+INSERT INTO FOTO(RELATO, FOTO) VALUES (1, 'https://img.freepik.com/fotos-gratis/bela-e-rara-onca-preta-no-brasil-panthera-onca_437937-1741.jpg');
+INSERT INTO VIDEO(RELATO, VIDEO) VALUES (1, 'https://www.youtube.com/watch?v=oWtTqZqMl3g&ab_channel=ca%C3%A7aepescapvh');
+INSERT INTO AUDIO(RELATO, AUDIO) VALUES (1, 'https://www.youtube.com/watch?v=l9r4vyIfLV8&ab_channel=MATHEUSTIGER');
 INSERT INTO comentario_relato (usuario, relato, data_hora, descricao)
-VALUES (1, 2, '2022-04-06 15:40:04', 'Que belo animal! Espero que ela fique bem!');
+VALUES (1, 1, '2022-04-06 15:40:04', 'Que belo animal! Espero que ela fique bem!');
 INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
 VALUES (1, 1, '2022-04-06 17:50:30', 'Muito bonita! Sabiam que a pantera negra pertence à mesma espécie que a onça-pintada?')
-
+--
 
 -- RELATO + ALERTA 2 - Belle Belinha
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
 VALUES (2, 3, '2022-05-06 15:05:15', 'Cervo-do-pantanal', -26.2295, -52.6716, 'Avistei o que parece ser um cervo andando perto da minha fazenda, ele parecia machucado.');
 INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO)
 VALUES (4, '2022-05-06 15:15:30', 'Foi relatada a presença de um cervo machucado próximo à fazenda Rico Caipira, precisamos enviar alguém para checar o estado do animal.');
-INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (5, 7);
-INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (5, 3);
-INSERT INTO FOTO(RELATO, FOTO) VALUES (3, 'https://www.coisasdaroca.com/wp-content/uploads/2021/04/cervo-do-pantanal.jpg');
-INSERT INTO VIDEO(RELATO, VIDEO) VALUES (3, 'https://www.youtube.com/watch?v=gxekKBYEB5w&ab_channel=CantinhoSelvagem');
-INSERT INTO AUDIO(RELATO, AUDIO) VALUES (3, 'https://www.youtube.com/shorts/pgFj735CgH4');
+INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (2, 7);
+INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (2, 2);
+INSERT INTO FOTO(RELATO, FOTO) VALUES (2, 'https://www.coisasdaroca.com/wp-content/uploads/2021/04/cervo-do-pantanal.jpg');
+INSERT INTO VIDEO(RELATO, VIDEO) VALUES (2, 'https://www.youtube.com/watch?v=gxekKBYEB5w&ab_channel=CantinhoSelvagem');
+INSERT INTO AUDIO(RELATO, AUDIO) VALUES (2, 'https://www.youtube.com/shorts/pgFj735CgH4');
 INSERT INTO comentario_relato (usuario, relato, data_hora, descricao)
-VALUES (15, 3, '2022-05-06 15:40:04', 'Oh, que cervo bonito! Espero que ele fique bem.');
+VALUES (15, 2, '2022-05-06 15:40:04', 'Oh, que cervo bonito! Espero que ele fique bem.');
 INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
 VALUES (15, 2, '2022-05-06 17:50:30', 'Cervos são muito bonitos, amo estes animais');
---
-
 --
 
 -- Espécimes ZOOLOGICO 1
@@ -229,7 +224,6 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 
 -- Espécime 12
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
-
 
 -- CONSULTA 1 : ESPECIME -> CAFÉ, VETERINÁRIO: Matheus Viana
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
