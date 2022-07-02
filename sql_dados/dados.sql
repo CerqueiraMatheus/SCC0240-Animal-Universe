@@ -168,6 +168,23 @@ VALUES (1, 2, '2022-04-06 15:40:04', 'Que belo animal! Espero que ela fique bem!
 INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
 VALUES (1, 1, '2022-04-06 17:50:30', 'Muito bonita! Sabiam que a pantera negra pertence à mesma espécie que a onça-pintada?')
 
+
+-- RELATO + ALERTA 2 - Belle Belinha
+INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
+VALUES (2, 3, '2022-05-06 15:05:15', 'Cervo-do-pantanal', -26.2295, -52.6716, 'Avistei o que parece ser um cervo andando perto da minha fazenda, ele parecia machucado.');
+INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO)
+VALUES (4, '2022-05-06 15:15:30', 'Foi relatada a presença de um cervo machucado próximo à fazenda Rico Caipira, precisamos enviar alguém para checar o estado do animal.');
+INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (5, 7);
+INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (5, 3);
+INSERT INTO FOTO(RELATO, FOTO) VALUES (3, 'https://www.coisasdaroca.com/wp-content/uploads/2021/04/cervo-do-pantanal.jpg');
+INSERT INTO VIDEO(RELATO, VIDEO) VALUES (3, 'https://www.youtube.com/watch?v=gxekKBYEB5w&ab_channel=CantinhoSelvagem');
+INSERT INTO AUDIO(RELATO, AUDIO) VALUES (3, 'https://www.youtube.com/shorts/pgFj735CgH4');
+INSERT INTO comentario_relato (usuario, relato, data_hora, descricao)
+VALUES (15, 3, '2022-05-06 15:40:04', 'Oh, que cervo bonito! Espero que ele fique bem.');
+INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
+VALUES (15, 2, '2022-05-06 17:50:30', 'Cervos são muito bonitos, amo estes animais');
+--
+
 --
 
 -- Espécimes ZOOLOGICO 1
