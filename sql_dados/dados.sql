@@ -225,10 +225,19 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 -- Espécime 12
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
 
--- CONSULTA 1 : ESPECIME -> CAFÉ, VETERINÁRIO: Matheus Viana
+-- CONSULTA 1 : ESPECIME -> Paçoca, VETERINÁRIO: Matheus Viana
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-07-20 11:50:00', 2, 11, 'Infecção bacteriana nas patas traseiras', 'Utilização de antibiótico todo dia às 10h da manhã.');
 
 -- ESTADO 1 :
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-07-30 10:10:00', 2, 12, 'Está bem, com as patas curadas');
+
+
+-- CONSULTA 2 : ESPECIME -> CAFÉ, VETERINÁRIO: Matheus Viana
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-05-07 10:50:00', 2, 14, 'Está com as patas um pouco queimadas', 'Utilização de gaze e curativo e um remédio para queimadura.');
+
+-- ESTADO 2 :
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2022-05-07 15:30:00', 2, 15, 'Está melhorando bem. Está saudável.');
