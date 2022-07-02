@@ -163,7 +163,7 @@ INSERT INTO AUDIO(RELATO, AUDIO) VALUES (1, 'https://www.youtube.com/watch?v=l9r
 INSERT INTO comentario_relato (usuario, relato, data_hora, descricao)
 VALUES (1, 1, '2022-04-06 15:40:04', 'Que belo animal! Espero que ela fique bem!');
 INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
-VALUES (1, 1, '2022-04-06 17:50:30', 'Muito bonita! Sabiam que a pantera negra pertence à mesma espécie que a onça-pintada?')
+VALUES (1, 1, '2022-04-06 17:50:30', 'Muito bonita! Sabiam que a pantera negra pertence à mesma espécie que a onça-pintada?');
 --
 
 -- RELATO + ALERTA 2 - Belle Belinha
