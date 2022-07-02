@@ -4,6 +4,12 @@ import inquirer
 from inquirer.themes import GreenPassion
 import os
 from terminal import *
+import sys, readchar
+
+# Correção do Inquirer
+if any(x in sys.platform for x in ['darwin', 'linux']):
+    # Corrige backspace
+    readchar.key.BACKSPACE = '\x7F'
 
 '''
 #establishing the connection
