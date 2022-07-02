@@ -154,12 +154,19 @@ INSERT INTO ANIMAL_VIDEO (ANIMAL, VIDEO) VALUES (3, 'https://www.youtube.com/wat
 INSERT INTO PREDACAO (PRESA, PREDADOR) VALUES (2, 1);
 
 
--- ALERTA 1 - Bermudes
+-- RELATO + ALERTA 1 - Bermudes
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
 VALUES (1, 2, '2022-04-06 15:30:00', 'Onça-pintada', -23.55052, -46.633309, 'Avistei uma onça preta nas redondezas do campus 2 da USP, parecia estar fraca e magra.');
 INSERT INTO ALERTA_ORGANIZACAO (ALERTA, ORGANIZACAO) VALUES (1, 6);
 INSERT INTO ALERTA_RELATO (ALERTA, RELATO) VALUES (1, 1);
-INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 11:54:30', 'Foi relatado a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
+INSERT INTO ALERTA (BIOLOGO, DATAHORA, DESCRICAO) VALUES ( 3, '2022-04-06 15:54:30', 'Foi relatado a presença de uma onça preta no campus 2 da USP, precisamos enviar alguém para analisar a situação.');
+INSERT INTO FOTO(RELATO, FOTO) VALUES (2, 'https://img.freepik.com/fotos-gratis/bela-e-rara-onca-preta-no-brasil-panthera-onca_437937-1741.jpg');
+INSERT INTO VIDEO(RELATO, VIDEO) VALUES (2, 'https://www.youtube.com/watch?v=oWtTqZqMl3g&ab_channel=ca%C3%A7aepescapvh');
+INSERT INTO AUDIO(RELATO, AUDIO) VALUES (2, 'https://www.youtube.com/watch?v=l9r4vyIfLV8&ab_channel=MATHEUSTIGER');
+INSERT INTO comentario_relato (usuario, relato, data_hora, descricao)
+VALUES (1, 2, '2022-04-06 15:40:04', 'Que belo animal! Espero que ela fique bem!');
+INSERT INTO comentario_animal (usuario, animal, data_hora, descricao)
+VALUES (1, 1, '2022-04-06 17:50:30', 'Muito bonita! Sabiam que a pantera negra pertence à mesma espécie que a onça-pintada?')
 
 --
 
