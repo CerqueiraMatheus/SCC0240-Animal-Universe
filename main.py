@@ -61,7 +61,7 @@ def paginaInicial(user):
             ]
     
     if user == 'Biólogo':
-        choices += ['Criar Alerta'] # adicionar CUD Animal
+        choices += ['Criar Alerta', 'Criar Animal', 'Deletar Animal'] # adicionar CUD Animal
     elif user == 'Organização':
         choices += ['Ver Alertas']
     elif user != "Usuário":
@@ -375,11 +375,59 @@ def verEspecimes():
         
     return answers
 
+def criarAnimal():
+    title("Criação de Animais")
+    answers = basicRoutes()
+    clear()
+    
+    if (answers['ação'] == 'Manter'):
+        questions = [
+            inquirer.Text('nome', message='Digite o nome do animal'),
+            inquirer.Text('nome_cientifico', message='Digite o nome científico do animal'),
+            inquirer.Text('descrição', message='Escreva a descrição do animal'),
+            inquirer.Text('nível trófico', message='Digite o nível trófico do animal'),
+            inquirer.Text('vertebrado', message='Digite True se o animal for vertebrado, False, caso contrário'),
+            inquirer.Text('habitat', 'Descreva o habitat do animal'),
+            inquirer.Text('comportamento', message='Descreva o comportamento do animal'),
+            inquirer.Text('reprodução', message='Descreva a reprodução dos animais'),
+            inquirer.Text('filo', message='Digite o filo do animal'),
+            inquirer.Text('classe', message='Digite a classe do animal'),
+            inquirer.Text('ordem', message='Digite a ordem do animal'),
+            inquirer.Text('família', message='Digite a família do animal'),
+            inquirer.Text('gênero', message='Digite o gênero do animal'),
+            inquirer.Text('espécie', message='Digite a espécie do animal'),
+            inquirer.Text('extinto', message='Digite True se o animal estiver extinto, False, caso contrário'),
+            inquirer.Text('vídeo', message='Digite os vídeos desse animal'),
+            inquirer.Text('áudio', message='Digite os áudios desse animal'),
+            inquirer.Text('foto', message='Digite as fotos desse animal'),
+        ]
+        return inquirer.prompt(questions, theme=GreenPassion()) | {"ação": "Página Inicial"}
+    
+    return answers
+
+def deletarAnimal():
+    title("Deleção de Animais")
+    questions = [
+        inquirer.List('ação',
+                      message='')
+    ]
+    answers = basicRoutes()
+    clear()
+    
+    if (answers['ação'] == 'Manter'):
+        questions = [
+            inquirer.Text('animal', 'Digite o animal que deseja deletar')
+        ]
+        # deletar aqui
+        return inquirer.prompt(questions, theme=GreenPassion()) | {"ação" | "Página Inicial"}
+
+    return answers
+
 prevPage = None
 prevPrevPage = None
 nextPage = "Página Inicial"
 
-usuario = "Veterinário"
+usuario = "Biólogo"
 sair = False
 while not sair:
     if nextPage == "Página Inicial":
@@ -417,6 +465,10 @@ while not sair:
         answers = desapadrinhar()
     elif nextPage == 'Ver Espécimes':
         answers = verEspecimes()
+    elif nextPage == 'Criar Animal':
+        answers = criarAnimal()
+    elif nextPage == 'Deletar Animal':
+        answers = deletarAnimal()
     elif nextPage == "Sair":
         sair = True
         
