@@ -241,3 +241,36 @@ VALUES ('2022-05-07 10:50:00', 2, 11, 'Está com as patas um pouco queimadas', '
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-07 15:30:00', 2, 12, 'Está melhorando bem. Está saudável.');
 
+
+
+-- CONSULTA 5 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2020-07-20 12:00:00', 5, 14, 'Corte profundo no pescoço', 'Necessita de limpeza diária do ferimento e troca de curativos');
+
+-- ESTADO 5 : ESPECIME -> Mojito, CUIDADOR:
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2020-07-22 12:00:00', 5, 15, 'Curativos trocados, recuperando');
+
+-- CONSULTA 6 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2020-07-28 12:00:00', 5, 14, 'Ferida em cicatrização no pescoço', 'Necessita de remoção de curativos intensos');
+
+-- ESTADO 6 : ESPECIME -> Mojito, CUIDADOR: Belle Belinha
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2020-07-29 12:00:00', 5, 15, 'Curativos removidos');
+
+-- CONSULTA 7 : ESPECIME -> Tequila, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2021-05-28 12:00:00', 6, 14, 'Tristeza profunda', 'Necessita de passeios com a cuidadora');
+
+-- ESTADO 7 : ESPECIME -> Tequila, CUIDADOR: Belle Belinha
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2021-05-29 12:00:00', 6, 15, 'Passeio realizado, Tequila feliz.');
+
+-- CONSULTA 8 : ESPECIME -> Gin, VETERINÁRIO: Beatriz Machado
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2021-04-23 12:00:00', 7, 14, 'Dente quebrado', 'Necessita de anestésicos por 3 dias');
+
+-- ESTADO 8 : ESPECIME -> Gin, CUIDADOR: Belle Belinha
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2021-04-26 12:00:00', 7, 15, 'Tratamento finalizado, Gin recuperado');
