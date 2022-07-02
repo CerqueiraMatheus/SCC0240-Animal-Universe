@@ -192,6 +192,10 @@ def relatos():
         return {"ação": "Relato"}
     return answers
 
+def criarAnimal():
+    title("Criação de Animal")
+    
+
 def relato(animal):
     title("Relato")
     # Mostrar as informações 
