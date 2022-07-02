@@ -225,6 +225,7 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 -- Espécime 12
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
 
+
 -- CONSULTA 1 : ESPECIME -> Paçoca, VETERINÁRIO: Matheus Viana
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
 VALUES ('2022-07-20 11:50:00', 1, 11, 'Infecção bacteriana nas patas traseiras', 'Utilização de antibiótico todo dia às 10h da manhã.');
@@ -240,6 +241,20 @@ VALUES ('2022-05-07 10:50:00', 2, 11, 'Está com as patas um pouco queimadas', '
 -- ESTADO 2 :
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-07 15:30:00', 2, 12, 'Está melhorando bem. Está saudável.');
+
+-- CONSULTA 3
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-05-07 16:00:00', 3, 11, 'Está com verme', 'Utilização de vermífugo');
+-- ESTADO 3 :
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2022-05-10 16:00:00', 3, 12, 'Está completamente saudável.');
+
+-- CONSULTA 4:
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-05-12 16:00:00', 4, 11, 'Está com um machucado superficial na barriga.', 'Pomada na superfície da barriga, massageando-a');
+-- ESTADO 4:
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2022-05-20 16:00:00', 4, 12, 'O machucado sarou completamente. Está saudável.');
 
 
 
@@ -274,3 +289,21 @@ VALUES ('2021-04-23 12:00:00', 7, 14, 'Dente quebrado', 'Necessita de anestésic
 -- ESTADO 8 : ESPECIME -> Gin, CUIDADOR: Belle Belinha
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2021-04-26 12:00:00', 7, 15, 'Tratamento finalizado, Gin recuperado');
+
+
+
+-- Zoológico 3
+-- CONSULTA 1:
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-04-15 16:00:00', 9, 17, 'Está com ', 'Pomada na superfície da barriga, massageando-a');
+-- ESTADO 1:
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2022-04-20 16:00:00', 9, 18, 'O machucado sarou completamente. Está saudável.');
+
+-- CONSULTA 2:
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-04-25 16:00:00', 10, 17, 'Está com queimaduras nas patas da frente', 'Aplicação de pomada para queimaduras na pata, e mantê-las enfaixadas.');
+-- ESTADO 2:
+INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
+VALUES ('2022-05-20 16:00:00', 10, 18, 'As patas estão perfeitas e o animal está saudável.');
+
