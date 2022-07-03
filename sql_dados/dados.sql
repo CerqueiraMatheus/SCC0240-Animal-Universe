@@ -232,6 +232,13 @@ INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, H
 VALUES ('Myrmecophaga tridactyla', 3, 'Tamanduá-bandeira', true, 'Consumidor', 'Ambientes florestados', 'Chordata', 'Mammalia', 'Pilosa', 'Mirmecofagídeos', 'Myrmecophaga', 'M. tridactyla', 'Sexuada', false, 'Ele mede cerca de 2,20 metros, pesa até 45kg, tem uma cauda grande e com pelos grossos e compridos e um focinho longo. O tamanduá-bandeira (Myrmecophaga tridactyla) usa suas garras dianteiras para escavar vários formigueiros e cupinzeiros ao longo do dia para capturar, com sua língua extensível, até 30 mil formigas e cupins.');
 
 
+-- ANIMAL 7: Jacaré-Açu
+INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
+                    FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
+VALUES ('Melanosuchus niger', 3, 'Jacaré-Açu', true, 'Consumidor',
+        'Rios e Lagos', 'Chordata','Reptilia', 'Crocodylia', 'Alligatoridae', 'Melanosuchus', 'Melanosuchus niger', 'Sexuada', false, 'O jacaré-açu é uma espécie de jacaré exclusiva da América do Sul. Também conhecido como jacaré-negro ou jacaré-preto, é um predador de topo de cadeia alimentar.');
+
+
 -- 
 -- Predação
 -- 
@@ -255,6 +262,9 @@ VALUES (6, 1);
 -- PREDAÇÃO 5: LOBO-GUARÁ X TAMANDUÁ-BANDEIRA
 INSERT INTO PREDACAO (presa, predador)
 VALUES (6, 5);
+
+-- Predação 6: Jacaré x Capivara
+INSERT INTO PREDACAO (PRESA, PREDADOR) VALUES (3, 5);
 
 -- 
 -- Relatos e alertas
