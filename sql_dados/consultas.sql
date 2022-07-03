@@ -133,3 +133,4 @@ FROM especime e
 JOIN zoologico z on z.cnpj = e.zoologico
 JOIN animal a on e.animal = a.id
 JOIN usuario u ON e.gestor = u.id
+ORDER BY a.nome;
