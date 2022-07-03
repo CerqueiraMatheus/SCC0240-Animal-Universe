@@ -1,5 +1,6 @@
 -- usuario do biologo
 INSERT INTO usuario (documento, nacionalidade, nome, tipo) VALUES (%s, %s, %s, %s);
+
 -- tornar usuario biologo
 INSERT INTO biologo (id, nivel, curriculo) VALUES ((SELECT(currval('usuario_id_seq'))), %s, %s);
 
