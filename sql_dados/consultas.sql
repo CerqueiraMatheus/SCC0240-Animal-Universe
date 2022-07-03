@@ -75,7 +75,6 @@ JOIN especime e2 ON
         e2.sexo = 'Feminino' AND
         (e.idade - e2.idade) < 5
     );
-
   
  -- Consulta 3: Veterinário que consultou todas as espécimes do seu zoológico
 SELECT
@@ -133,7 +132,6 @@ LEFT JOIN consulta c on v.id = c.veterinario
 GROUP BY u.nome, u.documento, z.nome
 ORDER BY SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) DESC;
 
-
 -- Consulta 6: listar os nomes dos espécimes dos zoológicos, quais animais são, qual o gestor responsável pelo cadastro e o nome do zoológico em que mora
 SELECT
     a.nome AS nome_animal, 
@@ -146,4 +144,55 @@ JOIN animal a on e.animal = a.id
 JOIN usuario u ON e.gestor = u.id
 ORDER BY a.nome;
 
+-- Consulta 7: listar todas as mídias de cada animal, considerando as mídias postadas em relatos e em páginas de animal, entre áudios, vídeos e fotos.
+SELECT
+    a.nome, midias.midia
+FROM animal a
+JOIN (
+    SELECT aa.animal AS id, aa.audio AS midia FROM animal_audio aa
+    UNION
+    SELECT af.animal AS id, af.foto AS midia FROM animal_foto af
+    UNION
+    SELECT av.animal AS id, av.video AS midia FROM animal_video av
+    UNION
+    SELECT an.id, ra.audio AS midia FROM audio ra JOIN animal an on an.id = ra.relato
+    UNION
+    SELECT an.id, rf.foto AS midia FROM foto rf JOIN animal an on an.id = rf.relato
+    UNION
+    SELECT an.id, rv.video AS midia FROM video rv JOIN animal an on an.id = rv.relato
+) midias ON a.id = midias.id
+ORDER BY a.nome;
+
+-- Consulta 8: listar todos os animais que não foram tratados pelos três níveis de funcionários de zoológico
+SELECT
+    e.id, e.nome, e.zoologico
+FROM
+(
+SELECT e.id
+FROM
+    especime e
+EXCEPT (
+    SELECT
+        e.id
+    FROM gestor g
+    JOIN especime e on g.id = e.gestor
+    GROUP BY e.id
+
+    INTERSECT
+
+    SELECT
+        c.especime
+    FROM veterinario v
+    JOIN consulta c ON v.id = c.veterinario
+    GROUP BY c.especime
+
+    INTERSECT
+
+    SELECT
+        e.especime
+    FROM cuidador c
+    JOIN estado e ON c.id = e.cuidador
+    GROUP BY e.especime)
+       ) nao_cuidados
+JOIN especime e ON e.id = nao_cuidados.id;
 -- Fim do Arquivo
