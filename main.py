@@ -1,34 +1,10 @@
-# import psycopg2
+import psycopg2
 from time import sleep
 import inquirer
 from inquirer.themes import GreenPassion
 import os
 from terminal import *
 import sys, readchar
-
-# Correção do Inquirer
-if any(x in sys.platform for x in ['darwin', 'linux']):
-    # Corrige backspace
-    readchar.key.BACKSPACE = '\x7F'
-
-'''
-#establishing the connection
-conn = psycopg2.connect(
-   database="postgres", user='postgres', password='180970', host='127.0.0.1', port='5432'
-)
-#Creating a cursor object using the cursor() method
-cursor = conn.cursor()
-
-#Executing an MYSQL function using the execute() method
-cursor.execute("select version()")
-
-# Fetch a single row using fetchone() method.
-data = cursor.fetchone()
-print("Connection established to: ",data)
-
-#Closing the connection
-conn.close()
-'''
 
 def clear():
     if os.name == 'nt':
@@ -407,10 +383,6 @@ def criarAnimal():
 
 def deletarAnimal():
     title("Deleção de Animais")
-    questions = [
-        inquirer.List('ação',
-                      message='')
-    ]
     answers = basicRoutes()
     clear()
     
@@ -423,11 +395,57 @@ def deletarAnimal():
 
     return answers
 
+def animaisRisco():
+    title("Pesquisa de Animais em Risco")
+    answers = basicRoutes()
+    clear()
+    if (answers['ação'] == 'Manter'):
+        questions = [
+            inquirer.Text('distância', 'Digite a distância (km) entre a presa e o predador'),
+            inquirer.Text('período', message='Digite o período em dias entre a aparição dos dois animais')
+        ]
+    
+
+if any(x in sys.platform for x in ['darwin', 'linux']):
+    # Corrige backspace
+    readchar.key.BACKSPACE = '\x7F'
+
+#establishing the connection
+conn = psycopg2.connect(
+   database="postgres", user='postgres', password='180970', host='127.0.0.1', port='5432'
+)
+#Creating a cursor object using the cursor() method
+cursor = conn.cursor()
+
+#Executing an MYSQL function using the execute() method
+cursor.execute("select version()")
+
+# Fetch a single row using fetchone() method.
+data = cursor.fetchone()
+print("Connection established to: ",data)
+
+file = open(".\sql_dados\consultas.sql")
+
+lines = file.readlines()
+lines = [line.rstrip().lstrip() for line in lines]
+queries = []
+query = []
+for line in lines:
+    if (line.startswith("--")):
+        if (len(query) > 0):
+            queries.append(query)
+        query = []
+    elif (line != ""):
+        query.append(line)
+
+for i, q in enumerate(queries):
+    queries[i] = ' '.join(q)
+
 prevPage = None
 prevPrevPage = None
 nextPage = "Página Inicial"
 
-usuario = "Biólogo"
+usuario = "Organização"
 sair = False
 while not sair:
     if nextPage == "Página Inicial":
@@ -469,8 +487,12 @@ while not sair:
         answers = criarAnimal()
     elif nextPage == 'Deletar Animal':
         answers = deletarAnimal()
+    elif nextPage == 'Pesquisar Animais em Risco':
+        answers = animaisRisco()
     elif nextPage == "Sair":
         sair = True
+        #Closing the connection
+        conn.close()
         
     prevPrevPage = prevPage
     prevPage = nextPage
