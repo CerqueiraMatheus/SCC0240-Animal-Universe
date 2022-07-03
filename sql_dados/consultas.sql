@@ -63,16 +63,42 @@ WHERE calculate_distance(
 ORDER BY distancia_km, dias_diferenca;
       
 -- Consulta 2: Verificar possibilidades de "casais" de espécimes em um mesmo zoológico (Exemplo: pinguim macho com pinguim fêmea, cervo macho com cervo fêmea). Além disso, a diferença de idade entre as 2 espécimes deve ser menor do que 5 anos.
-select e.nome, e2.nome from especime e
-join especime e2 on e.zoologico = e2.zoologico and e.animal = e2.animal and (e.sexo = 'Masculino' and e2.sexo = 'Feminino' and (e.idade - e2.idade) < 5);
+SELECT 
+    e.nome, 
+    e2.nome 
+FROM especime e
+JOIN especime e2 ON 
+    e.zoologico = e2.zoologico AND 
+    e.animal = e2.animal AND 
+    (
+        e.sexo = 'Masculino' AND
+        e2.sexo = 'Feminino' AND
+        (e.idade - e2.idade) < 5
+    );
 
-
--- Consulta 3: Veterinário que consultou todas as espécimes do seu zoológico
-select * from veterinario v join funcionario f on v.id = f.id where not exists(
-    (select e.id from especime e where e.zoologico = f.zoologico) except
-    (select c.especime from consulta c where v.id = c.veterinario)
-);
-
+  
+ -- Consulta 3: Veterinário que consultou todas as espécimes do seu zoológico
+SELECT
+    u.nome,
+    u.documento,
+    z.nome,
+    z.cnpj
+FROM veterinario v
+JOIN funcionario f ON v.id = f.id
+JOIN usuario u ON f.id = u.id
+JOIN zoologico z ON f.zoologico = z.cnpj
+WHERE NOT EXISTS(
+        (SELECT
+             e.id
+         FROM especime e
+         WHERE e.zoologico = f.zoologico)
+        EXCEPT
+        (SELECT
+             c.especime
+         FROM consulta c
+         WHERE v.id = c.veterinario)
+    );
+    
 -- Consulta 4: Animais que menos demandam consultas e atualizações de estado (custo menor a um zoológico) junto da quantidade de espécimes que demandam consulta e atualização. Apresentar nome do animal, quantidade de consultas, atualizações de estado e quantidade de espécimes, organizado de acordo com o menor número de consultas e atualizações.
 SELECT
     a.id,
@@ -97,16 +123,16 @@ HAVING contagem_especimes.qtde_especimes > 0
 ORDER BY contagem_consultas, contagem_estados DESC;
   
   
--- Consulta 5: Ver quantas consultas cada veterinário fez:
+-- Consulta 5: Ver quantas consultas cada veterinário fez, exibindo o nome do veterinário, seu documento, zoológico que trabalha e a quantidade:
  SELECT
-    v.id,
-    u.nome,
-    SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) AS contagem_consultas
+    u.nome, u.documento, z.nome,
+    SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) AS quantidade_de_consultas
 FROM
-     veterinario v join funcionario on v.id = funcionario.id join usuario u on  funcionario.id = u.id
+     veterinario v join funcionario f on v.id = f.id join zoologico z on f.zoologico = z.cnpj join usuario u on  f.id = u.id
 LEFT JOIN consulta c on v.id = c.veterinario
-GROUP BY v.id, u.nome
+GROUP BY u.nome, u.documento, z.nome
 ORDER BY SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) DESC;
+
 
 -- Consulta 6: listar os nomes dos espécimes dos zoológicos, quais animais são, qual o gestor responsável pelo cadastro e o nome do zoológico em que mora
 SELECT
@@ -118,5 +144,6 @@ FROM especime e
 JOIN zoologico z on z.cnpj = e.zoologico
 JOIN animal a on e.animal = a.id
 JOIN usuario u ON e.gestor = u.id
+ORDER BY a.nome;
 
 -- Fim do Arquivo
