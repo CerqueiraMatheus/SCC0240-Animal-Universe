@@ -431,6 +431,15 @@ VALUES ('Salvador', 'Masculino', 7, 'Gosta de carinho', 'Arisco', 55321663333154
 INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor)
 VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4,
         (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
+        
+-- Espécime 13
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor)
+VALUES ('Arroz', 'Feminino', 19, 'Gosta de dormir', 'Tranquila', 14301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14155200708')));
+
+-- Espécime 14
+INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, animal, gestor) 
+VALUES ('Farofa', 'Feminino', 18, 'Gosta de nadar', 'Agitada', 14301663000150, 4, (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14155200708')));
+
 
 --
 -- Consultas e atualizações de estado
