@@ -510,7 +510,7 @@ VALUES ('2021-04-26 12:00:00', 7, 15, 'Tratamento finalizado, Gin recuperado');
 
 -- CONSULTA 9:
 INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
-VALUES ('2022-04-15 16:00:00', 9, 17, 'Está com ', 'Pomada na superfície da barriga, massageando-a');
+VALUES ('2022-04-15 16:00:00', 9, 17, 'Está com queimaduras na barriga', 'Pomada na superfície da barriga, massageando-a');
 
 -- ESTADO 9:
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
