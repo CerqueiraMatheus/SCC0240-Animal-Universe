@@ -60,10 +60,9 @@ WHERE calculate_distance(
     rpredador.longitude, 'K') < 1000
   AND
       abs(EXTRACT (day from (rpresa.data_hora - rpredador.data_hora))) < 30
+ORDER BY distancia_km, dias_diferenca;
       
-      
-  -- Consulta 2: Verificar possibilidades de "casais" de espécimes em um mesmo zoológico (Exemplo: pinguim macho com pinguim fêmea, cervo macho com cervo fêmea)
-  -- Além disso, a diferença de idade entre as 2 espécimes deve ser menor do que 5 anos.
+-- Consulta 2: Verificar possibilidades de "casais" de espécimes em um mesmo zoológico (Exemplo: pinguim macho com pinguim fêmea, cervo macho com cervo fêmea). Além disso, a diferença de idade entre as 2 espécimes deve ser menor do que 5 anos.
 select e.nome, e2.nome from especime e
 join especime e2 on e.zoologico = e2.zoologico and e.animal = e2.animal and (e.sexo = 'Masculino' and e2.sexo = 'Feminino' and (e.idade - e2.idade) < 5);
 
