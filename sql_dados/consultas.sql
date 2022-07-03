@@ -68,7 +68,11 @@ select e.nome, e2.nome from especime e
 join especime e2 on e.zoologico = e2.zoologico and e.animal = e2.animal and (e.sexo = 'Masculino' and e2.sexo = 'Feminino' and (e.idade - e2.idade) < 5);
 
   
-  
+ -- Consulta 3: Veterinário que consultou todas as espécimes do seu zoológico
+ select * from veterinario v join funcionario f on v.id = f.id where not exists(
+        (select e.id from especime e where e.zoologico = f.zoologico) except
+        (select c.especime from consulta c where v.id = c.veterinario)
+    );
   
   
   
