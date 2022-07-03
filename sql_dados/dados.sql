@@ -69,7 +69,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))));
 INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO)
 VALUES (14301663000150, 'ZOO SAO CARLOS', 'RUA DOS BOBOS, Nº 0', 'VOU PARTIR COM ELES PRA MADAGASCAR');
 
--- FUNCIONARIO GESTOR 'BERMUDES'
+-- Funcionário gestor 'BERMUDES'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('14155200708', 'Brasileiro', 'Matheus Bermudes', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -77,7 +77,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2020-12-08', 14301663000150, 'Gest
 INSERT INTO GESTOR (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO VETERINARIO 'VIANA'
+-- Funcionário veterinário 'VIANA'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('11849797', 'Colombiano', 'Matheus Viana', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -85,7 +85,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2020-06-21', 14301663000150, 'Vete
 INSERT INTO VETERINARIO (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO CUIDADOR 'LUISA'
+-- Funcionário cuidador 'LUISA'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('3755817', 'Italiano', 'Luisa Balleroni', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -97,7 +97,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))));
 INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO)
 VALUES (25301663000150, 'ZOO VITORIA', 'Enseada do Suá, Nº 69', 'Tartarugas, tubarões, e todo tipo de peixe!');
 
--- FUNCIONARIO GESTOR 'Claudio'
+-- Funcionário gestor 'Claudio'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('145555505503', 'Argentino', 'Claudio Bochecha', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -105,7 +105,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2021-10-02', 25301663000150, 'Gest
 INSERT INTO GESTOR (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO VETERINARIO 'Beatriz'
+-- Funcionário veterinário 'Beatriz'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('3770981236', 'Brasileiro', 'Beatriz Machado', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -113,7 +113,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2019-04-12', 25301663000150, 'Vete
 INSERT INTO VETERINARIO (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO CUIDADOR 'Belle Belinha'
+-- Funcionário cuidador 'Belle Belinha'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('133769420', 'Brasileiro', 'Belle Belinha', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -126,7 +126,7 @@ INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO)
 VALUES (55321663333154, 'ZOO OSASCO', 'Rua das Laranjeiras, Nº 750',
         'Répteis, Anfíbios, Mamíferos, e todo tipo de animal!');
 
--- FUNCIONARIO GESTOR 'Anderson'
+-- Funcionário gestor 'Anderson'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('14154300009', 'Brasileiro', 'Anderson Novaes', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -134,7 +134,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2020-05-15', 55321663333154, 'Gest
 INSERT INTO GESTOR (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO VETERINARIO 'Elídio'
+-- Funcionário veterinário 'Elídio'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('14154322308', 'Brasileiro', 'Elídio Sanna', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -142,7 +142,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2021-04-12', 55321663333154, 'Vete
 INSERT INTO VETERINARIO (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO CUIDADOR 'Daniel'
+-- Funcionário cuidador 'Daniel'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('19154332009', 'Brasileiro', 'Daniel Nascimento', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -150,7 +150,7 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2022-02-16', 55321663333154, 'Cuid
 INSERT INTO CUIDADOR (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- FUNCIONARIO CUIDADOR 'CLODOALDO'
+-- Funcionário cuidador 'CLODOALDO'
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('19555222559', 'Brasileiro', 'Clodoaldo Pereira', 'Funcionário');
 INSERT INTO FUNCIONARIO (id, DATA_INICIO, ZOOLOGICO, TIPO)
@@ -237,7 +237,6 @@ INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, H
                     FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
 VALUES ('Melanosuchus niger', 3, 'Jacaré-Açu', true, 'Consumidor',
         'Rios e Lagos', 'Chordata','Reptilia', 'Crocodylia', 'Alligatoridae', 'Melanosuchus', 'Melanosuchus niger', 'Sexuada', false, 'O jacaré-açu é uma espécie de jacaré exclusiva da América do Sul. Também conhecido como jacaré-negro ou jacaré-preto, é um predador de topo de cadeia alimentar.');
-
 
 -- 
 -- Predação
@@ -356,7 +355,6 @@ VALUES (6, 4, '2022-04-05 18:00:00', 'Tamanduá', -23.0418, -50.0737,
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
 VALUES (1, 6, '2022-04-05 23:00:00', 'Onça', -23.1593, -49.9718,
         'Vi uma onça na Usina');
-
 
 -- 
 -- Espécimes
