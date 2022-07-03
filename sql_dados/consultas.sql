@@ -165,7 +165,7 @@ ORDER BY a.nome;
 
 -- Consulta 8: listar todos os animais que não foram tratados pelos três níveis de funcionários de zoológico
 SELECT
-    e.id, e.nome
+    e.id, e.nome, e.zoologico
 FROM
 (
 SELECT e.id
