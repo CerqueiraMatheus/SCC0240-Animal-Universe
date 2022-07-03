@@ -15,18 +15,20 @@ if any(x in sys.platform for x in ['darwin', 'linux']):
 
 # Estabelece a conexão
 conn = psycopg2.connect(
-   database="postgres", user='postgres', password='180970', host='127.0.0.1', port='5432'
+   database="postgres", user='postgres', password='fence4ufo', host='127.0.0.1', port='5432'
 )
 
 # Cria um objeto de cursor
 cursor = conn.cursor()
 
 # Seleciona a versão
-cursor.execute("select version()")
+# cursor.execute("select version()")
 
 # Testa e estabele a conexão
-data = cursor.fetchone()
-print("Connection established to: ",data)
+# data = cursor.fetchone()
+# print("Connection established to: ",data)
+
+clear()
 
 # Tratamento de caminhos
 if os.name == 'nt':
