@@ -482,6 +482,17 @@ VALUES ('2022-05-12 16:00:00', 4, 11, 'Está com um machucado superficial na bar
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-20 16:00:00', 4, 12, 'O machucado sarou completamente. Está saudável.');
 
+
+-- CONSULTA 5:
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-11-12 13:00:00', 13, 11, 'Está com infecção bacteriana.',
+        'Utilização de antibióticos todo dia às 12h por 7 dias');
+
+-- CONSULTA 6:
+INSERT INTO consulta (datahora, especime, veterinario, diagnostico, tratamento)
+VALUES ('2022-12-12 11:00:00', 14, 11, 'Está com infecção bacteriana.',
+        'Utilização de antibióticos todo dia às 12h por 7 dias');
+
 -- Zoológico 2
 
 -- CONSULTA 5 : ESPECIME -> Mojito, VETERINÁRIO: Beatriz Machado
