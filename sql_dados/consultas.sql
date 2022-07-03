@@ -72,6 +72,28 @@ join especime e2 on e.zoologico = e2.zoologico and e.animal = e2.animal and (e.s
         (select e.id from especime e where e.zoologico = f.zoologico) except
         (select c.especime from consulta c where v.id = c.veterinario)
     );
+
+-- Consulta 4: Animais que menos demandam consultas e atualizações de estado (custo menor a um zoológico) junto da quantidade de espécimes que demandam consulta e atualização. Apresentar nome do animal, quantidade de consultas, atualizações de estado e quantidade de espécimes, organizado de acordo com o menor número de consultas e atualizações.
+SELECT
+    a.id,
+    a.nome,
+    SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) AS contagem_consultas,
+    SUM (CASE WHEN es IS NOT NULL THEN 1 ELSE 0 END) AS contagem_estados,
+    contagem_especimes.qtde_especimes
+FROM
+    animal a
+LEFT JOIN especime e on a.id = e.animal
+LEFT JOIN consulta c on e.id = c.especime
+LEFT JOIN estado es on e.id = es.especime
+JOIN (SELECT
+          ani.id,
+          SUM (CASE WHEN e IS NOT NULL THEN 1 ELSE 0 END) AS qtde_especimes
+      FROM
+          animal ani
+              LEFT JOIN especime e ON ani.id = e.animal
+      GROUP BY ani.id) contagem_especimes ON a.id = contagem_especimes.id
+GROUP BY a.id, contagem_especimes.qtde_especimes
+ORDER BY contagem_consultas, contagem_estados DESC
   
   
   
