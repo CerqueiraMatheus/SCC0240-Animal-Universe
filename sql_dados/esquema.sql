@@ -170,6 +170,7 @@ CREATE TABLE COMENTARIO_ANIMAL(
     CONSTRAINT FK_COMENTARIO FOREIGN KEY (COMENTARIO) REFERENCES COMENTARIO_ANIMAL(ID)
 );
 
+-- Cria a tabela FOTO, que guarda a foto do relatório.
 CREATE TABLE FOTO(
     RELATO NUMERIC(5),
     FOTO VARCHAR(300),
@@ -177,6 +178,7 @@ CREATE TABLE FOTO(
     CONSTRAINT FK_RELATO FOREIGN KEY (RELATO) REFERENCES RELATO(ID)
 );
 
+-- Cria a tabela VIDEO, que guarda o video do relatório.
 CREATE TABLE VIDEO(
     RELATO NUMERIC(5),
     VIDEO VARCHAR(300),
@@ -184,6 +186,8 @@ CREATE TABLE VIDEO(
     CONSTRAINT FK_RELATO FOREIGN KEY (RELATO) REFERENCES RELATO(ID)
 );
 
+
+-- Cria a tabela AUDIO, que guarda o audio do relatório.
 CREATE TABLE AUDIO(
     RELATO NUMERIC(5),
     AUDIO VARCHAR(300),
@@ -195,7 +199,9 @@ CREATE TABLE AUDIO(
 -- ESPÉCIME E DERIVADOS
 --
 
+-- Cria a sequência de id das espécimes, que será utilizada para a geração do ID da espécime ao ser inserida no banco de dados.
 CREATE SEQUENCE ESPECIME_ID_SEQ;
+-- Cria a tabela ESPECIME, que contém os dados de cada espécime.
 CREATE TABLE ESPECIME
 (
     ID NUMERIC(5) NOT NULL DEFAULT nextval('ESPECIME_ID_SEQ'),
@@ -213,6 +219,7 @@ CREATE TABLE ESPECIME
     CONSTRAINT FK_GESTOR FOREIGN KEY (GESTOR) REFERENCES GESTOR(ID)
 );
 
+-- Criando a tabela ANIMAL_FOTO, que guarda a foto do animal
 CREATE TABLE ANIMAL_FOTO(
     ANIMAL NUMERIC(5),
     FOTO VARCHAR(300),
@@ -220,6 +227,8 @@ CREATE TABLE ANIMAL_FOTO(
     CONSTRAINT FK_RELATO FOREIGN KEY (ANIMAL) REFERENCES ANIMAL(ID)
 );
 
+
+-- Criando a tabela ANIMAL_VIDEO, que guarda os vídeos de cada animal
 CREATE TABLE ANIMAL_VIDEO(
     ANIMAL NUMERIC(5),
     VIDEO VARCHAR(300),
@@ -227,6 +236,8 @@ CREATE TABLE ANIMAL_VIDEO(
     CONSTRAINT FK_RELATO FOREIGN KEY (ANIMAL) REFERENCES ANIMAL(ID)
 );
 
+
+-- Criando a tabela ANIMAL_AUDIO, que guarda os audios de cada animal
 CREATE TABLE ANIMAL_AUDIO(
     ANIMAL NUMERIC(5),
     AUDIO VARCHAR(300),
@@ -234,6 +245,7 @@ CREATE TABLE ANIMAL_AUDIO(
     CONSTRAINT FK_RELATO FOREIGN KEY (ANIMAL) REFERENCES ANIMAL(ID)
 );
 
+-- Criando a tabela PREDACAO, que define quais animais são predadores de quais animais
 CREATE TABLE PREDACAO(
     PRESA NUMERIC(5),
     PREDADOR NUMERIC(5),
@@ -242,6 +254,8 @@ CREATE TABLE PREDACAO(
     CONSTRAINT FK_PREDADOR FOREIGN KEY (PREDADOR) REFERENCES ANIMAL(ID)
 );
 
+
+-- Criando a tabela APADRINHAMENTO, que guarda a espécime e o usuário, além da data inicial e final desse apadrinhamento e o valor.
 CREATE TABLE APADRINHAMENTO(
     DATA_INICIAL DATE,
     DATA_FINAL DATE,
@@ -253,6 +267,7 @@ CREATE TABLE APADRINHAMENTO(
     CONSTRAINT FK_USUARIO FOREIGN KEY (USUARIO) REFERENCES USUARIO(ID)
 );
 
+-- Criando a tabela ESTADO, que guarda a condição da espécime ao ser atendida pelo cuidador
 CREATE TABLE ESTADO(
     DATAHORA TIMESTAMP,
     ESPECIME NUMERIC(5),
@@ -263,6 +278,7 @@ CREATE TABLE ESTADO(
     CONSTRAINT FK_CUIDADOR FOREIGN KEY (CUIDADOR) REFERENCES CUIDADOR(ID)
 );
 
+-- Criando uma tabela que registrará as consultas de alguma espécime
 CREATE TABLE CONSULTA(
     DATAHORA TIMESTAMP,
     ESPECIME NUMERIC(5),
