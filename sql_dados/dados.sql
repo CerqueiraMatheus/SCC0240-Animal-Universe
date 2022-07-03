@@ -224,12 +224,12 @@ VALUES (3, 'https://www.youtube.com/watch?v=kJwgLTgcE_0&ab_channel=Aqu%C3%A1riod
 -- ANIMAL 5: LOBO-GUARÁ
 INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
                     FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
-VALUES (5, 'Chrysocyon brachyurus', 2, 'Lobo-guará', true, 'Consumidor', 'Cerrado', 'Chordata','Mammalia', 'Carnívoro', 'Canídeos', 'Chrysocyon', 'C. brachyurus', 'Sexuada', false, 'O lobo-guará (nome científico: Chrysocyon brachyurus), também chamado guará, aguará, aguaraçu, lobo-de-crina, lobo-de-juba e lobo-vermelho, é uma espécie de canídeo endêmico da América do Sul.');
+VALUES ('Chrysocyon brachyurus', 2, 'Lobo-guará', true, 'Consumidor', 'Cerrado', 'Chordata','Mammalia', 'Carnívoro', 'Canídeos', 'Chrysocyon', 'C. brachyurus', 'Sexuada', false, 'O lobo-guará (nome científico: Chrysocyon brachyurus), também chamado guará, aguará, aguaraçu, lobo-de-crina, lobo-de-juba e lobo-vermelho, é uma espécie de canídeo endêmico da América do Sul.');
 
 -- ANIMAL 6: TAMANDUÁ-BANDEIRA
 INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
                     FILO, CLASSE, ORDEM, FAMILIA, GENERO, ESPECIE, REPRODUCAO, EXTINTO, DESCRICAO)
-VALUES (6, 'Myrmecophaga tridactyla', 3, 'Tamanduá-bandeira', true, 'Consumidor', 'Ambientes florestados', 'Chordata', 'Mammalia', 'Pilosa', 'Mirmecofagídeos', 'Myrmecophaga', 'M. tridactyla', 'Sexuada', false, 'Ele mede cerca de 2,20 metros, pesa até 45kg, tem uma cauda grande e com pelos grossos e compridos e um focinho longo. O tamanduá-bandeira (Myrmecophaga tridactyla) usa suas garras dianteiras para escavar vários formigueiros e cupinzeiros ao longo do dia para capturar, com sua língua extensível, até 30 mil formigas e cupins.');
+VALUES ('Myrmecophaga tridactyla', 3, 'Tamanduá-bandeira', true, 'Consumidor', 'Ambientes florestados', 'Chordata', 'Mammalia', 'Pilosa', 'Mirmecofagídeos', 'Myrmecophaga', 'M. tridactyla', 'Sexuada', false, 'Ele mede cerca de 2,20 metros, pesa até 45kg, tem uma cauda grande e com pelos grossos e compridos e um focinho longo. O tamanduá-bandeira (Myrmecophaga tridactyla) usa suas garras dianteiras para escavar vários formigueiros e cupinzeiros ao longo do dia para capturar, com sua língua extensível, até 30 mil formigas e cupins.');
 
 
 -- 
