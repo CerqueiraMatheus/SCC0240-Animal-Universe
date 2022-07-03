@@ -97,4 +97,12 @@ HAVING contagem_especimes.qtde_especimes > 0
 ORDER BY contagem_consultas, contagem_estados DESC;
   
   
-  
+ -- Consulta 5: Ver quantas consultas cada veterinário fez:
+ SELECT
+    v.id,
+    u.nome,
+    SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) AS contagem_consultas
+FROM
+     veterinario v join funcionario on v.id = funcionario.id join usuario u on  funcionario.id = u.id
+LEFT JOIN consulta c on v.id = c.veterinario
+GROUP BY v.id, u.nome;
