@@ -3,12 +3,14 @@ from terminal import *
 import inquirer
 from inquirer.themes import GreenPassion
 
+# Limpa a tela
 def clear():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
         
+# Retorna queries
 def getQueries(path):
     consultas = open(path)
 
@@ -29,10 +31,12 @@ def getQueries(path):
       
     return queries  
         
+# Título de página
 def title(text):
     s = Color(text)
     print(s.green_bg.white.underline)
         
+# Rotas
 def basicRoutes():
     questions = [
             inquirer.List('ação',

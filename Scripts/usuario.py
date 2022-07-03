@@ -5,6 +5,7 @@ from inquirer.themes import GreenPassion
 from terminal import *
 from auxiliar import *
 
+# Define a página inicial
 def paginaInicial(user):
     title("Página Inicial")
     choices = ['Identificação',
@@ -40,6 +41,7 @@ def paginaInicial(user):
     answers = inquirer.prompt(questions, theme=GreenPassion())
     return answers 
 
+# Realiza a identificação de um usuário
 def identificacao():
     title("Identificação")
     answers = basicRoutes()
@@ -51,10 +53,13 @@ def identificacao():
         return inquirer.prompt(questions, theme=GreenPassion()) | {"ação": "Página Inicial"}
     return answers
 
+# Realiza o cadastro um usuário
 def cadastro(cursor, insercoes, conn):
     title("Cadastro")
     answers = basicRoutes()
     clear()
+
+    # Cadastro base
     if (answers['ação'] == 'Manter'):
         questions = [
             inquirer.Text('nacionalidade', 'Digite sua nacionalidade'),
@@ -82,22 +87,30 @@ def cadastro(cursor, insercoes, conn):
         type = inquirer.prompt(questions, theme=GreenPassion())
         clear()
         
+        # Tipos de usuários
         questions = None
+
+        # Biólogo
         if type['tipo'] == "Biólogo":
             questions = [
                 inquirer.Text('formacao', 'Digite seu nível de formação'),
                 inquirer.Text('curriculo', 'Digite seu currículo')
             ]
+
+        # Organização
         elif type['tipo'] == "Organização":
             questions = [
                 inquirer.Text('certificacoes', 'Digite suas certificações')
             ]
+
+        # Funcionário
         elif type['tipo'] != "Usuário" and type['tipo'] != "Biólogo" and type['tipo'] != "Organização":
             questions = [
                 inquirer.Text('dataInicio', 'Digite a data em que começou a trabalhar (yyyy-mm-dd)'),
                 inquirer.Text('zoologico', 'Digite o zoológico em trabalha')
             ]
         
+        # Cadastro de funcionário
         print()
         title("Cadastro - Informações Específicas")
         data = basic | type
@@ -106,6 +119,9 @@ def cadastro(cursor, insercoes, conn):
             data = data | specifics
             clear()
             
+        # Verificações
+
+        # Usuário
         if (type['tipo'] == 'Usuário'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], None))
@@ -117,6 +133,8 @@ def cadastro(cursor, insercoes, conn):
                 print("Campo com muitos caracteres")
                 sleep(3)
                 return {'ação': 'Página Inicial'}
+        
+        # Biólogo
         elif (type['tipo'] == 'Biólogo'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], data['tipo']))
@@ -129,6 +147,8 @@ def cadastro(cursor, insercoes, conn):
                 print("Campo com muitos caracteres")
                 sleep(3)
                 return {'ação': 'Página Inicial'}
+        
+        # Organização
         elif (type['tipo'] == 'Organização'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], data['tipo']))
@@ -141,6 +161,8 @@ def cadastro(cursor, insercoes, conn):
                 print("Campo com muitos caracteres")
                 sleep(3)
                 return {'ação': 'Página Inicial'}
+        
+        # Funcionário
         elif (type['tipo'] == 'Funcionario'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], data['tipo']))
@@ -158,6 +180,8 @@ def cadastro(cursor, insercoes, conn):
                 print('Este zoológico não existe. Por favor, tente novamente')
                 sleep(3)
                 return {'ação': 'Página Inicial'}
+        
+        # Gestor
         elif (type['tipo'] == 'Gestor'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], data['tipo']))
@@ -176,6 +200,8 @@ def cadastro(cursor, insercoes, conn):
                 sleep(3)
                 return {'ação': 'Página Inicial'}
             cursor.execute(insercoes[4])
+        
+        # Veterinário
         elif (type['tipo'] == 'Veterinário'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], data['tipo']))
@@ -194,6 +220,8 @@ def cadastro(cursor, insercoes, conn):
                 sleep(3)
                 return {'ação': 'Página Inicial'}
             cursor.execute(insercoes[5])
+        
+        # Cuidador
         elif (type['tipo'] == 'Cuidador'):
             try:
                 cursor.execute(insercoes[0], (data['documento'], data['nacionalidade'], data['nome'], data['tipo']))
@@ -223,6 +251,7 @@ def cadastro(cursor, insercoes, conn):
     # devemos retornar o id do usuário
     return answers
 
+# Busca um animal
 def buscaAnimal():
     title("Busca de Animal")
     questions = [
@@ -246,6 +275,7 @@ def buscaAnimal():
         
     return answers
 
+# Apadrinha um animal
 def apadrinhar():
     title("Apadrinhamento")
     answers = basicRoutes()
@@ -260,6 +290,7 @@ def apadrinhar():
         
     return answers
 
+# Desapadrinha um animal
 def desapadrinhar():
     title("Desapadrinhamento")
     answers = basicRoutes()
@@ -272,6 +303,7 @@ def desapadrinhar():
         return inquirer.prompt(questions, theme=GreenPassion()) | {"ação": "Página Inicial"}
     return answers
 
+# Visualiza espécimes do sistema
 def verEspecimes():
     title("Ver Espécimes")
     answers = basicRoutes()
@@ -285,6 +317,7 @@ def verEspecimes():
         
     return answers
 
+# Visualiza relatos do sistema
 def relatos():
     title("Relatos")
     questions = [
@@ -306,6 +339,7 @@ def relatos():
         return {"ação": "Relato"}
     return answers
 
+# Página de relatos
 def relato(animal):
     title("Relato")
     # Mostrar as informações 
@@ -328,7 +362,8 @@ def relato(animal):
     # Passar o relato ou a chave dele no parametro ou ele proprio
     
     return answers
-    
+
+# Cria um relato no sistema
 def criarRelato():
     title("Criação de Relato")
     answers = basicRoutes()

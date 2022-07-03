@@ -3,7 +3,7 @@ from inquirer.themes import GreenPassion
 from terminal import *
 from auxiliar import *
 
-
+# Cadastra um espécime
 def cadastrarEspecime():
     title("Cadastrar Espécime")
     questions = [
@@ -15,6 +15,7 @@ def cadastrarEspecime():
     ]
     return inquirer.prompt(questions, theme=GreenPassion()) | {"ação": "Página Inicial"}
 
+# Disponibiliza um animal para apadrinhamento
 def disponibilizar():
     title("Disponibilizar para Apadrinhamento")
     answers = basicRoutes()

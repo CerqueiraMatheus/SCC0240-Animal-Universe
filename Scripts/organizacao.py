@@ -1,6 +1,7 @@
 from auxiliar import *
 from time import sleep
 
+# Vê alertas gerados
 def verAlertas():
     title("Ver Alertas")
     answers = basicRoutes()
@@ -13,6 +14,7 @@ def verAlertas():
 
     return answers
 
+# Cria um alerta a partir de relatos
 def alerta():
     title("Alerta")
     answers = basicRoutes()

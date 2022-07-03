@@ -3,6 +3,7 @@ from inquirer.themes import GreenPassion
 from terminal import *
 from auxiliar import *
 
+# Cria um alerta com os dados
 def criarAlerta():
     title("Criação de Alerta")
     answers = basicRoutes()
@@ -20,6 +21,7 @@ def criarAlerta():
     
     return answers
 
+# Cria um animal com os dados
 def criarAnimal():
     title("Criação de Animais")
     answers = basicRoutes()
@@ -50,6 +52,7 @@ def criarAnimal():
     
     return answers
 
+# Deleta um animal com os dados
 def deletarAnimal():
     title("Deleção de Animais")
     answers = basicRoutes()
@@ -64,6 +67,7 @@ def deletarAnimal():
 
     return answers
 
+# Retorna os animais em risco dados parâmetros
 def animaisRisco(cursor, consultas):
     title("Pesquisa de Animais em Risco")
     answers = basicRoutes()

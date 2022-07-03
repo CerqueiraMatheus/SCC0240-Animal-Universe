@@ -3,6 +3,7 @@ from inquirer.themes import GreenPassion
 from terminal import *
 from auxiliar import *
 
+# Atualiza o estado de um espécime
 def atualizarEstado():
     title("Atualizar Estado do Espécime")
     answers = basicRoutes()

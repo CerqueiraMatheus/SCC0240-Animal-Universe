@@ -9,24 +9,26 @@ from gestor import *
 from organizacao import *
 from veterinario import *
 
+# Correção do backspace para linux
 if any(x in sys.platform for x in ['darwin', 'linux']):
-    # Corrige backspace
     readchar.key.BACKSPACE = '\x7F'
 
-#establishing the connection
+# Estabelece a conexão
 conn = psycopg2.connect(
    database="postgres", user='postgres', password='180970', host='127.0.0.1', port='5432'
 )
-#Creating a cursor object using the cursor() method
+
+# Cria um objeto de cursor
 cursor = conn.cursor()
 
-#Executing an MYSQL function using the execute() method
+# Seleciona a versão
 cursor.execute("select version()")
 
-# Fetch a single row using fetchone() method.
+# Testa e estabele a conexão
 data = cursor.fetchone()
 print("Connection established to: ",data)
 
+# Tratamento de caminhos
 if os.name == 'nt':
     consultas = getQueries("..\sql_dados\consultas.sql")
     insercoes = getQueries("..\sql_dados\insercao.sql")
@@ -34,15 +36,19 @@ else:
     consultas = getQueries("../sql_dados/consultas.sql")
     insercoes = getQueries("../sql_dados/insercao.sql")
 
+# Páginas
 prevPage = None
 prevPrevPage = None
 nextPage = "Página Inicial"
 
+# Auxiliares
 usuario = "Biólogo"
 sair = False
+
+# Menu
 while not sair:
     if nextPage == "Página Inicial":
-        # deve-se passar o ID do usuário (variável 'usuario') para a página Inicial
+        # Deve-se passar o ID do usuário (variável 'usuario') para a página Inicial
         answers = paginaInicial(usuario)
     elif nextPage == "Identificação":
         answers = identificacao()
@@ -84,16 +90,20 @@ while not sair:
         answers = animaisRisco(cursor, consultas)
     elif nextPage == "Sair":
         sair = True
-        #Closing the connection
+        # Fecha a conexão
         conn.close()
-        
+    
+    # Páginas
     prevPrevPage = prevPage
-    prevPage = nextPage
-        
+    prevPage = nextPage    
     nextPage = None
+
+    # Ações
     if ("ação" in answers):
         nextPage = answers['ação']
 
     if (nextPage == "Voltar"):
         nextPage = prevPrevPage
+    
+    # Limpa a tela
     clear()

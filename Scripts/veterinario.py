@@ -3,6 +3,7 @@ from inquirer.themes import GreenPassion
 from terminal import *
 from auxiliar import *
 
+# Cadastra uma consulta
 def consulta():
     title("Realizar Consulta")
     answers = basicRoutes()
