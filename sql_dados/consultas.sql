@@ -107,3 +107,14 @@ FROM
 LEFT JOIN consulta c on v.id = c.veterinario
 GROUP BY v.id, u.nome
 ORDER BY SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) DESC;
+
+-- Consulta 6: listar os nomes dos espécimes dos zoológicos, quais animais são, qual o gestor responsável pelo cadastro e o nome do zoológico em que mora
+SELECT
+    a.nome AS nome_animal, 
+    e.nome AS nome_especime, 
+    z.nome AS nome_zoologico, 
+    u.nome AS nome_gestor
+FROM especime e
+JOIN zoologico z on z.cnpj = e.zoologico
+JOIN animal a on e.animal = a.id
+JOIN usuario u ON e.gestor = u.id
