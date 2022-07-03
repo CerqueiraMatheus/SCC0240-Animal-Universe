@@ -78,14 +78,25 @@ JOIN especime e2 ON
 
   
  -- Consulta 3: Veterinário que consultou todas as espécimes do seu zoológico
-SELECT u.nome, u.documento, z.nome, z.cnpj
+SELECT
+    u.nome,
+    u.documento,
+    z.nome,
+    z.cnpj
 FROM veterinario v
 JOIN funcionario f ON v.id = f.id
 JOIN usuario u ON f.id = u.id
 JOIN zoologico z ON f.zoologico = z.cnpj
 WHERE NOT EXISTS(
-        (select e.id from especime e where e.zoologico = f.zoologico) EXCEPT
-        (select c.especime from consulta c where v.id = c.veterinario)
+        (SELECT
+             e.id
+         FROM especime e
+         WHERE e.zoologico = f.zoologico)
+        EXCEPT
+        (SELECT
+             c.especime
+         FROM consulta c
+         WHERE v.id = c.veterinario)
     );
     
 -- Consulta 4: Animais que menos demandam consultas e atualizações de estado (custo menor a um zoológico) junto da quantidade de espécimes que demandam consulta e atualização. Apresentar nome do animal, quantidade de consultas, atualizações de estado e quantidade de espécimes, organizado de acordo com o menor número de consultas e atualizações.
