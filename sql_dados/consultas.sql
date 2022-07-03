@@ -112,16 +112,16 @@ HAVING contagem_especimes.qtde_especimes > 0
 ORDER BY contagem_consultas, contagem_estados DESC;
   
   
- -- Consulta 5: Ver quantas consultas cada veterinário fez:
+-- Consulta 5: Ver quantas consultas cada veterinário fez, exibindo o nome do veterinário, seu documento, zoológico que trabalha e a quantidade:
  SELECT
-    v.id,
-    u.nome,
-    SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) AS contagem_consultas
+    u.nome, u.documento, z.nome,
+    SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) AS quantidade_de_consultas
 FROM
-     veterinario v join funcionario on v.id = funcionario.id join usuario u on  funcionario.id = u.id
+     veterinario v join funcionario f on v.id = f.id join zoologico z on f.zoologico = z.cnpj join usuario u on  f.id = u.id
 LEFT JOIN consulta c on v.id = c.veterinario
-GROUP BY v.id, u.nome
+GROUP BY u.nome, u.documento, z.nome
 ORDER BY SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) DESC;
+
 
 -- Consulta 6: listar os nomes dos espécimes dos zoológicos, quais animais são, qual o gestor responsável pelo cadastro e o nome do zoológico em que mora
 SELECT
