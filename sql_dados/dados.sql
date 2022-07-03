@@ -1,13 +1,13 @@
--- 
+--
 -- Usuário
--- 
+--
 
 INSERT INTO usuario (documento, nacionalidade, nome)
 VALUES ('55883662129', 'Brasileiro', 'Alexandre Brito');
 
--- 
+--
 -- Biólogo
--- 
+--
 
 -- Biólogo 1
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
@@ -33,37 +33,42 @@ VALUES ('15087406823', 'Polonês', 'Raissa Torres Barreira', 'Biólogo');
 INSERT INTO biologo (id, nivel, curriculo)
 VALUES ((SELECT(currval('usuario_id_seq'))), 'Mestrado', 'Tem CRM de número 04 e trabalhou na ANA');
 
--- 
+--
 -- Organizações
--- 
+--
 
 -- Organização 1
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('51.504.667/0001-62', 'Brasileiro', 'UIPA', 'Organização');
 INSERT INTO organizacao (id)
 VALUES ((SELECT(currval('usuario_id_seq'))));
-
+INSERT INTO certificacao (organizacao, certificacao)
+VALUES (6, 'ISO 14001');
 -- Organização 2
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('02.451.194/0001-77', 'Polonês', 'Tierheim', 'Organização');
 INSERT INTO organizacao (id)
 VALUES ((SELECT(currval('usuario_id_seq'))));
-
+INSERT INTO certificacao (organizacao, certificacao)
+VALUES (7, 'ISO 9001');
 -- Organização 3
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('78.314.368/0001-11', 'Brasileiro', 'SOPRAP', 'Organização');
 INSERT INTO organizacao (id)
 VALUES ((SELECT(currval('usuario_id_seq'))));
-
+INSERT INTO certificacao (organizacao, certificacao)
+VALUES (8, 'ISO 14001104');
 -- Organização 4
 INSERT INTO usuario (documento, nacionalidade, nome, tipo)
 VALUES ('18.657.421/0001-55', 'Brasileiro', 'ANDA', 'Organização');
 INSERT INTO organizacao (id)
 VALUES ((SELECT(currval('usuario_id_seq'))));
+INSERT INTO certificacao (organizacao, certificacao)
+VALUES (9, 'ISO 14001104');
 
--- 
+--
 -- Zoológicos e funcionários de zoológico
--- 
+--
 
 -- Zoológico 1
 INSERT INTO ZOOLOGICO (CNPJ, NOME, ENDERECO, DESCRICAO)
@@ -158,9 +163,9 @@ VALUES ((SELECT(currval('usuario_id_seq'))), '2022-04-16', 55321663333154, 'Cuid
 INSERT INTO CUIDADOR (ID)
 VALUES ((SELECT(currval('usuario_id_seq'))));
 
--- 
+--
 -- Animais
--- 
+--
 
 -- ANIMAL 1: ONÇA-PINTADA
 INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, HABITAT,
@@ -238,9 +243,9 @@ INSERT INTO ANIMAL (NOME_CIENTIFICO, BIOLOGO, NOME, VERTEBRADO, NIVEL_TROFICO, H
 VALUES ('Melanosuchus niger', 3, 'Jacaré-Açu', true, 'Consumidor',
         'Rios e Lagos', 'Chordata','Reptilia', 'Crocodylia', 'Alligatoridae', 'Melanosuchus', 'Melanosuchus niger', 'Sexuada', false, 'O jacaré-açu é uma espécie de jacaré exclusiva da América do Sul. Também conhecido como jacaré-negro ou jacaré-preto, é um predador de topo de cadeia alimentar.');
 
--- 
+--
 -- Predação
--- 
+--
 
 -- PREDAÇÃO 1: ONÇA X CERVO
 INSERT INTO PREDACAO (presa, predador)
@@ -265,9 +270,9 @@ VALUES (6, 5);
 -- Predação 6: Jacaré x Capivara
 INSERT INTO PREDACAO (PRESA, PREDADOR) VALUES (3, 5);
 
--- 
+--
 -- Relatos e alertas
--- 
+--
 
 -- RELATO + ALERTA 1 - Bermudes
 INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONGITUDE, DESCRICAO)
@@ -356,9 +361,9 @@ INSERT INTO RELATO (ANIMAL, USUARIO, DATA_HORA, ANIMAL_DETECTADO, LATITUDE, LONG
 VALUES (1, 6, '2022-04-05 23:00:00', 'Onça', -23.1593, -49.9718,
         'Vi uma onça na Usina');
 
--- 
+--
 -- Espécimes
--- 
+--
 
 -- Espécimes ZOOLOGICO 1
 
@@ -427,9 +432,9 @@ INSERT INTO especime (nome, sexo, idade, habitos, temperamento, zoologico, anima
 VALUES ('Marília', 'Femininino', 9, 'Dorme de barriga para cima', 'Brincalhona', 55321663333154, 4,
         (SELECT u.id FROM usuario u WHERE (u.nacionalidade = 'Brasileiro' AND u.documento = '14154300009')));
 
--- 
+--
 -- Consultas e atualizações de estado
--- 
+--
 
 -- Zoológico 1
 
@@ -523,9 +528,9 @@ VALUES ('2022-04-25 16:00:00', 10, 17, 'Está com queimaduras nas patas da frent
 INSERT INTO estado (datahora, especime, cuidador, condicao_especime)
 VALUES ('2022-05-20 16:00:00', 10, 18, 'As patas estão perfeitas e o animal está saudável.');
 
--- 
+--
 -- Apadrinhamentos
--- 
+--
 
 -- APADRINHAMENTO 1
 insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor)
@@ -546,3 +551,4 @@ VALUES ('2022-09-01', '2022-12-20', 4, 4, 1180);
 -- APADRINHAMENTO 5
 insert into apadrinhamento (data_inicial, data_final, especime, usuario, valor)
 VALUES ('2022-09-30', '2022-12-30', 5, 5, 1060);
+
