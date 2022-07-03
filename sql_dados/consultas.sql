@@ -145,3 +145,22 @@ JOIN zoologico z on z.cnpj = e.zoologico
 JOIN animal a on e.animal = a.id
 JOIN usuario u ON e.gestor = u.id
 ORDER BY a.nome;
+
+-- Consulta 7: listar todas as mídias de cada animal, considerando as mídias postadas em relatos e em páginas de animal, entre áudios, vídeos e fotos.
+SELECT
+    a.nome, midias.midia
+FROM animal a
+JOIN (
+    SELECT aa.animal AS id, aa.audio AS midia FROM animal_audio aa
+    UNION
+    SELECT af.animal AS id, af.foto AS midia FROM animal_foto af
+    UNION
+    SELECT av.animal AS id, av.video AS midia FROM animal_video av
+    UNION
+    SELECT an.id, ra.audio AS midia FROM audio ra JOIN animal an on an.id = ra.relato
+    UNION
+    SELECT an.id, rf.foto AS midia FROM foto rf JOIN animal an on an.id = rf.relato
+    UNION
+    SELECT an.id, rv.video AS midia FROM video rv JOIN animal an on an.id = rv.relato
+) midias ON a.id = midias.id
+ORDER BY a.nome;
