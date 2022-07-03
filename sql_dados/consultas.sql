@@ -105,4 +105,5 @@ ORDER BY contagem_consultas, contagem_estados DESC;
 FROM
      veterinario v join funcionario on v.id = funcionario.id join usuario u on  funcionario.id = u.id
 LEFT JOIN consulta c on v.id = c.veterinario
-GROUP BY v.id, u.nome;
+GROUP BY v.id, u.nome
+ORDER BY SUM (CASE WHEN c IS NOT NULL THEN 1 ELSE 0 END) DESC;
