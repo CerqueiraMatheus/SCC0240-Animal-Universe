@@ -93,7 +93,8 @@ JOIN (SELECT
               LEFT JOIN especime e ON ani.id = e.animal
       GROUP BY ani.id) contagem_especimes ON a.id = contagem_especimes.id
 GROUP BY a.id, contagem_especimes.qtde_especimes
-ORDER BY contagem_consultas, contagem_estados DESC
+HAVING contagem_especimes.qtde_especimes > 0
+ORDER BY contagem_consultas, contagem_estados DESC;
   
   
   
